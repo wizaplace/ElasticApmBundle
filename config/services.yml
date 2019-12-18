@@ -10,14 +10,24 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
-
-  elastic_apm.service.agent_service:
-    class: Wizacha\ElasticApm\Service\AgentService
-    arguments:
+    bind:
       $apmEnabled: '%elastic_apm.enabled%'
-      $agent: '@philkra.agent'
+      $agent: '@PhilKra\Agent'
+      $agentService: '@Wizacha\ElasticApm\Service\AgentService'
 
-  philkra.agent:
+  Wizacha\ElasticApmBundle\ElasticApmSubscriber:
+    class: Wizacha\ElasticApmBundle\ElasticApmSubscriber
+    tags:
+      - { name: kernel.event_subscriber }
+  Wizacha\ElasticApm\Service\AgentService:
+    class: Wizacha\ElasticApm\Service\AgentService
+
+  PhilKra\Agent:
     class: PhilKra\Agent
     arguments:
       - { appName: '%philkra.app_name%', appVersion: '%philkra.app_version%', environment: '%philkra.environment%', serverUrl: '%philkra.server_url%', secretToken: '%philkra.secret_token%' }
+
+  Wizacha\ElasticApmBundle\DependencyInjection\ElasticApmExtension:
+    class: Wizacha\ElasticApmBundle\DependencyInjection\ElasticApmExtension
+    tags:
+      - { name: apm_bundle.extension }
