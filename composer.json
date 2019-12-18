@@ -1,0 +1,14 @@
+{
+  "name": "wizacha/marketplace",
+  "description": "Wizaplace",
+  "license": "proprietary",
+  "require": {
+    "philkra/elastic-apm-php-agent": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:wizaplace/elastic-apm-wrapper.git"
+    }
+  ]
+}
