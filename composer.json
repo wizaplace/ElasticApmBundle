@@ -1,6 +1,7 @@
 {
   "name": "wizacha/marketplace",
   "description": "Wizaplace",
+  "type": "symfony-bundle",
   "license": "proprietary",
   "require": {
     "philkra/elastic-apm-php-agent": "dev-master",
