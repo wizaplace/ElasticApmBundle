@@ -3,7 +3,8 @@
   "description": "Wizaplace",
   "license": "proprietary",
   "require": {
-    "philkra/elastic-apm-php-agent": "dev-master"
+    "philkra/elastic-apm-php-agent": "dev-master",
+    "symfony/http-kernel": "3.1.*"
   },
   "repositories": [
     {
