@@ -4,7 +4,8 @@
   "license": "proprietary",
   "require": {
     "philkra/elastic-apm-php-agent": "dev-master",
-    "symfony/http-kernel": "3.1.*"
+    "symfony/http-kernel": "3.1.*",
+    "wizaplace/elastic-apm-wrapper": "^0.2.2"
   },
   "repositories": [
     {
