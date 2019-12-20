@@ -28,5 +28,15 @@
     "psr-4": {
       "Wizacha\\ElasticApmBundle\\Tests\\": "/Tests/"
     }
-  }
+  },
+  "require": {
+    "philkra/elastic-apm-php-agent": "dev-master",
+    "wizaplace/elastic-apm-wrapper": "^0.2.2"
+  },
+  "repositories": [
+    {
+      "type": "git",
+      "url": "git@github.com:wizaplace/elastic-apm-wrapper.git"
+    }
+  ]
 }
