@@ -1,5 +1,5 @@
 {
-  "name": "wizacha/marketplace",
+  "name": "wizacha/elastic-apm-symfony",
   "description": "Wizaplace",
   "type": "symfony-bundle",
   "license": "proprietary",
