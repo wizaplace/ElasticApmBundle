@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Wizacha\\ElasticApmBundle\\": ""
+      "Wizacha\\ApmBundle\\": ""
     },
     "exclude-from-classmap": [
       "/Tests/"
@@ -26,7 +26,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Wizacha\\ElasticApmBundle\\Tests\\": "/Tests/"
+      "Wizacha\\ApmBundle\\Tests\\": "/Tests/"
     }
   },
   "require": {
