@@ -31,6 +31,7 @@
   },
   "require": {
     "philkra/elastic-apm-php-agent": "dev-master",
+    "symfony/dependency-injection": "^5.0",
     "wizaplace/elastic-apm-wrapper": "^0.2.2"
   },
   "repositories": [
