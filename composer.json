@@ -1,8 +1,34 @@
 {
   "name": "wizacha/elastic-apm-symfony",
-  "description": "Wizaplace",
   "type": "symfony-bundle",
+  "description": "Wizaplace Elastic APM Wrapper for Symfony",
+  "keywords": [
+    "Elastic APM"
+  ],
+  "homepage": "https://github.com/wizaplace/elastic-apm-symfony",
   "license": "proprietary",
+  "authors": [
+    {
+      "name": "Wizacha DevTeam",
+      "email": "dev@wizacha.com"
+    }
+  ],
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Wizacha\\ElasticApmBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Wizacha\\ElasticApmBundle\\Tests\\": "/Tests/"
+    }
+  },
   "require": {
     "philkra/elastic-apm-php-agent": "dev-master",
     "wizaplace/elastic-apm-wrapper": "^0.2.2"
