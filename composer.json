@@ -1,5 +1,5 @@
 {
-  "name": "wizacha/elastic-apm-symfony",
+  "name": "wizaplace/elastic-apm-symfony",
   "type": "symfony-bundle",
   "description": "Wizaplace Elastic APM Wrapper for Symfony",
   "keywords": [
