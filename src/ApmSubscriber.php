@@ -31,12 +31,12 @@ class ApmSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function processException(KernelEvent $kernelEvent)
+    public function onKernelException(GetResponseEvent $kernelEvent)
     {
         $this->agentService->startTransaction('coucou');
     }
 
-    public function onKernelTerminate()
+    public function onKernelTerminate(PostResponseEvent $kernelEvent)
     {
         $this->agentService->stopTransaction();
     }
