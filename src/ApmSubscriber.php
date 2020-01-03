@@ -41,8 +41,17 @@ class ApmSubscriber implements EventSubscriberInterface
 
     public function onKernelRequest(GetResponseEvent $kernelEvent)
     {
-        if ($this->transaction === null) {
-            $this->transaction = $this->agentService->startTransaction('KernelEvent')->getTransaction();
+        if (true === $kernelEvent->isMasterRequest() && $this->transaction === null) {
+            $this->transaction = $this->agentService
+                ->startTransaction(
+                    sprintf(
+                        '%s %s (%s)',
+                        $kernelEvent->getRequest()->getMethod(),
+                        $kernelEvent->getRequest()->get('_controller'),
+                        $kernelEvent->getRequest()->get('_route')
+                    )
+                )
+                ->getTransaction();
         }
     }
 
