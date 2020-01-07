@@ -19,13 +19,8 @@ services:
 
   philkra.agent:
     class: PhilKra\Agent
-    factory: ['Wizacha\ApmBundle\PhilkraAgentFactory', 'createPhilkraAgent']
     arguments:
-      $appName: '%philkra.app_name%'
-      $appVersion: '%philkra.app_version%'
-      $environment: '%philkra.environment%'
-      $serverUrl: '%philkra.server_url%'
-      $secretToken: '%philkra.secret_token%'
+      - { appName: '%philkra.app_name%', appVersion: '%philkra.app_version%', environment: '%philkra.environment%', serverUrl: '%philkra.server_url%', secretToken: '%philkra.secret_token%' }
 
   apm_bundle.extension:
     class: Wizacha\ApmBundle\DependencyInjection\ApmBundleExtension
