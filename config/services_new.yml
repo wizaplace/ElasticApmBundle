@@ -23,7 +23,7 @@ services:
       - { appName: '%philkra.app_name%', appVersion: '%philkra.app_version%', environment: '%philkra.environment%', serverUrl: '%philkra.server_url%', secretToken: '%philkra.secret_token%' }
 
   apm.exception_subscriber:
-    class: Wizacha\ApmBundle\ApmSubscriber
+    class: Wizacha\ApmBundle\ApmSubscriberNew
     arguments:
       $agentService: '@elastic_apm.service.agent_service'
     tags:
