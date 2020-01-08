@@ -4,31 +4,18 @@ declare(strict_types=1);
 namespace Wizacha\ApmBundle;
 
 use PhilKra\Events\Transaction;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use HttpKernel\Event\ExceptionEvent;
-use HttpKernel\Event\RequestEvent;
-use HttpKernel\KernelEvents;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 use Wizacha\ElasticApm\Service\AgentService;
 
-class ApmSubscriberNew implements EventSubscriberInterface
+class ApmSubscriberLegacy extends ApmAbstractSubscriber
 {
     /** @var AgentService */
-    private $agentService;
+    protected $agentService;
 
-    private $transaction;
-
-    public function __construct(AgentService $agentService)
-    {
-        $this->agentService = $agentService;
-    }
-
-    public function __destruct()
-    {
-        if ($this->transaction instanceof Transaction) {
-            $this->agentService->stopTransaction();
-            $this->transaction = null;
-        }
-    }
+    /** @var Transaction */
+    protected $transaction;
 
     public static function getSubscribedEvents()
     {
@@ -39,7 +26,7 @@ class ApmSubscriberNew implements EventSubscriberInterface
         ];
     }
 
-    public function onKernelRequest(RequestEvent $kernelEvent)
+    public function onKernelRequest(GetResponseEvent $kernelEvent)
     {
         if (true === $kernelEvent->isMasterRequest() && $this->transaction === null) {
             $this->transaction = $this->agentService
@@ -55,16 +42,8 @@ class ApmSubscriberNew implements EventSubscriberInterface
         }
     }
 
-    public function onKernelException(ExceptionEvent $kernelEvent)
+    public function onKernelException(GetResponseForExceptionEvent $kernelEvent)
     {
         $this->agentService->error($kernelEvent->getException());
-    }
-
-    public function onKernelTerminate()
-    {
-        if ($this->transaction instanceof Transaction) {
-            $this->agentService->stopTransaction();
-            $this->transaction = null;
-        }
     }
 }

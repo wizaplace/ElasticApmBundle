@@ -1,0 +1,29 @@
+parameters:
+  philkra.app_name: '%env(PHILKRA_APP_NAME)%'
+  philkra.app_version: '%env(PHILKRA_APP_VERSION)%'
+  philkra.environment: '%env(PHILKRA_ENVIRONMENT)%'
+  philkra.server_url: '%env(PHILKRA_SERVER_URL)%'
+  philkra.secret_token: '%env(PHILKRA_SECRET_TOKEN)%'
+  elastic_apm.enabled: '%env(ELASTIC_APM_ENABLED)%'
+
+  services:
+    _defaults:
+      autowire: true
+      autoconfigure: true
+
+    elastic_apm.service.agent_service:
+      class: Wizacha\ElasticApm\Service\AgentService
+      arguments:
+        $apmEnabled: '%elastic_apm.enabled%'
+        $agent: '@philkra.agent'
+
+    philkra.agent:
+      class: PhilKra\Agent
+      arguments:
+        - { appName: '%philkra.app_name%', appVersion: '%philkra.app_version%', environment: '%philkra.environment%', serverUrl: '%philkra.server_url%', secretToken: '%philkra.secret_token%' }
+
+    apm_bundle.extension:
+      class: Wizacha\ApmBundle\DependencyInjection\ApmBundleExtension
+      public: false
+      tags:
+        - { name: apm_bundle.extension }

@@ -18,9 +18,9 @@ class ApmBundleExtension extends Extension
         );
 
         if (Kernel::VERSION_ID >= 4300) {
-            $loader->load(__DIR__.'/../config/services_new.yml');
-        } else {
             $loader->load(__DIR__.'/../config/services.yml');
+        } else {
+            $loader->load(__DIR__.'/../config/services_legacy.yml');
         }
     }
 }

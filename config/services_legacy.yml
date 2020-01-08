@@ -4,7 +4,7 @@ imports:
 parameters:
   services:
     apm.exception_subscriber:
-      class: Wizacha\ApmBundle\ApmSubscriber
+      class: Wizacha\ApmBundle\ApmSubscriberLegacy
       arguments:
         $agentService: '@elastic_apm.service.agent_service'
       tags:
