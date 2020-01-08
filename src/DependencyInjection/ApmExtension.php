@@ -14,13 +14,13 @@ class ApmExtension extends Extension
     {
         $loader = new YamlFileLoader(
             $container,
-            new FileLocator(__DIR__.'/../config')
+            new FileLocator(__DIR__ . '/../../config')
         );
 
         if (Kernel::VERSION_ID >= 4300) {
-            $loader->load(__DIR__.'/../config/services.yml');
+            $loader->load(__DIR__ . '/../../config/services.yml');
         } else {
-            $loader->load(__DIR__.'/../config/services_legacy.yml');
+            $loader->load(__DIR__ . '/../../config/services_legacy.yml');
         }
     }
 }
