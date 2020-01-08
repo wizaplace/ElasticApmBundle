@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 
-class ApmBundleExtension extends Extension
+class ApmExtension extends Extension
 {
     public function load(array $config, ContainerBuilder $container)
     {
