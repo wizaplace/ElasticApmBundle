@@ -1,11 +1,10 @@
 imports:
   - { resource: 'services_common.yml'}
 
-parameters:
-  services:
-    apm.exception_subscriber:
-      class: Wizacha\ApmBundle\ApmSubscriberLegacy
-      arguments:
-        $agentService: '@elastic_apm.service.agent_service'
-      tags:
-        - { name: kernel.event_subscriber }
+services:
+  apm.exception_subscriber:
+    class: Wizacha\ApmBundle\ApmSubscriberLegacy
+    arguments:
+      $agentService: '@elastic_apm.service.agent_service'
+    tags:
+      - { name: kernel.event_subscriber }
