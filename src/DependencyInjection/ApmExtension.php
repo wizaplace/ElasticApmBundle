@@ -17,7 +17,7 @@ class ApmExtension extends Extension
             new FileLocator(__DIR__ . '/../../config')
         );
 
-        if (Kernel::VERSION_ID >= 4300) {
+        if (Kernel::VERSION_ID >= 43000) {
             $loader->load(__DIR__ . '/../../config/services.yml');
         } else {
             $loader->load(__DIR__ . '/../../config/services_legacy.yml');
