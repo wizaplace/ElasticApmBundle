@@ -2,9 +2,9 @@ imports:
   - { resource: 'services_common.yml'}
 
 services:
-  Wizacha\ApmBundle\ApmSubscriber:
-    class: Wizacha\ApmBundle\ApmSubscriber
+  Wizacha\ElasticApmBundle\ElasticApmSubscriber:
+    class: Wizacha\ElasticApmBundle\ElasticApmAbstractSubscriber
     arguments:
-      $agentService: '@elastic_apm.service.agent_service'
+      $agentService: '@Wizacha\ElasticApm\Service\AgentService'
     tags:
       - { name: kernel.event_subscriber }

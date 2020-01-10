@@ -4,9 +4,9 @@ imports:
 services:
   _defaults:
     bind:
-      $agentService: '@elastic_apm.service.agent_service'
+      $agentService: '@Wizacha\ElasticApm\Service\AgentService'
 
-  Wizacha\ApmBundle\ApmSubscriberLegacy:
-    class: Wizacha\ApmBundle\ApmSubscriberLegacy
+  Wizacha\ElasticApmBundle\ElasticApmSubscriberLegacy:
+    class: Wizacha\ElasticApmBundle\ElasticApmSubscriberLegacy
     tags:
       - { name: kernel.event_subscriber }

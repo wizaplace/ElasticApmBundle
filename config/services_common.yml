@@ -12,7 +12,7 @@ services:
     autoconfigure: true
     bind:
       $apmEnabled: '%elastic_apm.enabled%'
-      $agent: '@philkra.agent'
+      $agent: '@PhilKra\Agent'
 
   Wizacha\ElasticApm\Service\AgentService:
     class: Wizacha\ElasticApm\Service\AgentService
@@ -22,7 +22,7 @@ services:
     arguments:
       - { appName: '%philkra.app_name%', appVersion: '%philkra.app_version%', environment: '%philkra.environment%', serverUrl: '%philkra.server_url%', secretToken: '%philkra.secret_token%' }
 
-  Wizacha\ApmBundle\DependencyInjection\ApmExtension:
-    class: Wizacha\ApmBundle\DependencyInjection\ApmExtension
+  Wizacha\ElasticApmBundle\DependencyInjection\ElasticApmExtension:
+    class: Wizacha\ElasticApmBundle\DependencyInjection\ElasticApmExtension
     tags:
       - { name: apm_bundle.extension }
