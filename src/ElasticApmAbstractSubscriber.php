@@ -1,7 +1,12 @@
 <?php
+/**
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
+ */
 declare(strict_types=1);
 
-namespace Wizacha\ApmBundle;
+namespace Wizacha\ElasticApmBundle;
 
 use PhilKra\Events\Transaction;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -10,7 +15,7 @@ use HttpKernel\Event\RequestEvent;
 use HttpKernel\KernelEvents;
 use Wizacha\ElasticApm\Service\AgentService;
 
-abstract class ApmAbstractSubscriber implements EventSubscriberInterface
+abstract class ElasticApmAbstractSubscriber implements EventSubscriberInterface
 {
 
     public function __construct(AgentService $agentService)

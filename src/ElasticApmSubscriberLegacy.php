@@ -1,7 +1,12 @@
 <?php
+/**
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
+ */
 declare(strict_types=1);
 
-namespace Wizacha\ApmBundle;
+namespace Wizacha\ElasticApmBundle;
 
 use PhilKra\Events\Transaction;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
@@ -9,7 +14,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Wizacha\ElasticApm\Service\AgentService;
 
-class ApmSubscriberLegacy extends ApmAbstractSubscriber
+class ElasticApmSubscriberLegacy extends ElasticApmAbstractSubscriber
 {
     /** @var AgentService */
     protected $agentService;

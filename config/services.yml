@@ -2,7 +2,7 @@ imports:
   - { resource: 'services_common.yml'}
 
 services:
-  apm.exception_subscriber:
+  Wizacha\ApmBundle\ApmSubscriber:
     class: Wizacha\ApmBundle\ApmSubscriber
     arguments:
       $agentService: '@elastic_apm.service.agent_service'

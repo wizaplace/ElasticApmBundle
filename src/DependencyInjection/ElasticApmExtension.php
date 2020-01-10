@@ -1,6 +1,12 @@
 <?php
+/**
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
+ */
+declare(strict_types=1);
 
-namespace Wizacha\ApmBundle\DependencyInjection;
+namespace Wizacha\ElasticApmBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
@@ -8,7 +14,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 
-class ApmExtension extends Extension
+class ElasticApmExtension extends Extension
 {
     public function load(array $config, ContainerBuilder $container)
     {
