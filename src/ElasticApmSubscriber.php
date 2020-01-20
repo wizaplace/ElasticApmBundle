@@ -9,9 +9,9 @@ declare(strict_types=1);
 namespace Wizacha\ElasticApmBundle;
 
 use PhilKra\Events\Transaction;
-use HttpKernel\Event\ExceptionEvent;
-use HttpKernel\Event\RequestEvent;
-use HttpKernel\KernelEvents;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
 use Wizacha\ElasticApm\Service\AgentService;
 
 class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
