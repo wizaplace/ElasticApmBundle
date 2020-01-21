@@ -49,6 +49,6 @@ class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
 
     public function onKernelException(ExceptionEvent $kernelEvent)
     {
-        $this->agentService->error($kernelEvent->getException());
+        $this->agentService->error($kernelEvent->getThrowable());
     }
 }
