@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Wizacha\ElasticApmBundle;
 
 use PhilKra\Events\Transaction;
-use Symfony\Component\HttpKernel\Event\ExceptionEvent;
-use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Wizacha\ElasticApm\Service\AgentService;
 
@@ -31,7 +31,7 @@ class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
         ];
     }
 
-    public function onKernelRequest(RequestEvent $kernelEvent)
+    public function onKernelRequest(GetResponseEvent $kernelEvent)
     {
         if (true === $kernelEvent->isMasterRequest() && $this->transaction === null) {
             $this->transaction = $this->agentService
@@ -47,8 +47,8 @@ class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
         }
     }
 
-    public function onKernelException(ExceptionEvent $kernelEvent)
+    public function onKernelException(GetResponseForExceptionEvent $kernelEvent)
     {
-        $this->agentService->error($kernelEvent->getThrowable());
+        $this->agentService->error($kernelEvent->getException());
     }
 }
