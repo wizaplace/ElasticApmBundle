@@ -13,6 +13,7 @@ namespace Wizacha\ElasticApmBundle;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
+use \PhilKra\Exception\Transaction\DuplicateTransactionNameException;
 
 class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
 {
@@ -26,7 +27,7 @@ class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
     }
 
     /**
-     * @throws \PhilKra\Exception\Transaction\DuplicateTransactionNameException
+     * @throws DuplicateTransactionNameException
      */
     public function onKernelRequest(GetResponseEvent $kernelEvent)
     {

@@ -16,10 +16,10 @@ use Wizacha\ElasticApm\Service\AgentService;
 
 abstract class ElasticApmAbstractSubscriber implements EventSubscriberInterface
 {
-    /** @var \Wizacha\ElasticApm\Service\AgentService */
+    /** @var AgentService */
     protected $agentService;
 
-    /** @var \PhilKra\Events\Transaction|null */
+    /** @var Transaction|null */
     protected $transaction;
 
     public function __construct(AgentService $agentService)
