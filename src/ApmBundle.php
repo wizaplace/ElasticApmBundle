@@ -1,6 +1,6 @@
 <?php
 
-namespace Wizacha\ApmBundle;
+namespace Wizacha\ElasticApmBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
