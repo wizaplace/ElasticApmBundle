@@ -1,27 +1,21 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizacha\ElasticApmBundle;
 
-use PhilKra\Events\Transaction;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use Wizacha\ElasticApm\Service\AgentService;
 
 class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
 {
-    /** @var AgentService */
-    protected $agentService;
-
-    /** @var Transaction */
-    protected $transaction;
-
     public static function getSubscribedEvents()
     {
         return [
@@ -31,9 +25,12 @@ class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
         ];
     }
 
+    /**
+     * @throws \PhilKra\Exception\Transaction\DuplicateTransactionNameException
+     */
     public function onKernelRequest(GetResponseEvent $kernelEvent)
     {
-        if (true === $kernelEvent->isMasterRequest() && $this->transaction === null) {
+        if (true === $kernelEvent->isMasterRequest() && null === $this->transaction) {
             $this->transaction = $this->agentService
                 ->startTransaction(
                     sprintf(
