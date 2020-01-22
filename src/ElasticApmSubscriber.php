@@ -10,10 +10,10 @@ declare(strict_types=1);
 
 namespace Wizacha\ElasticApmBundle;
 
+use PhilKra\Exception\Transaction\DuplicateTransactionNameException;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
-use \PhilKra\Exception\Transaction\DuplicateTransactionNameException;
 
 class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
 {
