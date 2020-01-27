@@ -51,8 +51,7 @@ class ElasticApmEnginePassTest extends TestCase
         $this->container->compile();
 
         static::assertSame(Agent::class, $this->container->getDefinition(Agent::class)->getClass());
-        static::assertArrayHasKey(Agent::class, $this->container->getDefinitions() );
-
+        static::assertArrayHasKey(Agent::class, $this->container->getDefinitions());
     }
 
     public function testDisabledConfiguration(): void
@@ -60,11 +59,7 @@ class ElasticApmEnginePassTest extends TestCase
         $this->setParameter('elastic_apm.enabled', false);
         $this->container->compile();
 
-        static::assertArrayNotHasKey(Agent::class, $this->container->getDefinitions());
-
-//        $agentService = $this->container->get(AgentService::class);
-//
-//        static::assertSame(null, $agentService->getAgent());
+        static::assertNull($this->container->get(AgentService::class)->getAgent());
     }
 
     /**
