@@ -19,6 +19,7 @@ services:
     class: Wizacha\ElasticApmBundle\ElasticApmSubscriber
     tags:
       - { name: kernel.event_subscriber }
+
   Wizacha\ElasticApm\Service\AgentService:
     class: Wizacha\ElasticApm\Service\AgentService
 
