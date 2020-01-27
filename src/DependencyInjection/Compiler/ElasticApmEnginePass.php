@@ -9,7 +9,7 @@ namespace Wizacha\ElasticApmBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-
+use Wizacha\ElasticApm\Service\AgentService;
 
 class ElasticApmEnginePass implements CompilerPassInterface
 {
@@ -18,8 +18,10 @@ class ElasticApmEnginePass implements CompilerPassInterface
         $elasticApmEnabled = $container->resolveEnvPlaceholders($container->getParameter('elastic_apm.enabled'), true);
 
         if (false === $elasticApmEnabled) {
-            $container->getDefinition('Wizacha\ElasticApm\Service\AgentService')
-                ->setArgument(1, null);
+            $container
+                ->getDefinition(AgentService::class)
+                ->setArgument(1, null)
+            ;
         }
     }
 }
