@@ -10,8 +10,6 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
-    bind:
-      $apmEnabled: '%elastic_apm.enabled%'
 
   Wizacha\ElasticApmBundle\ElasticApmSubscriber:
     class: Wizacha\ElasticApmBundle\ElasticApmSubscriber
