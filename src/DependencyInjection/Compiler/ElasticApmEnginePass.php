@@ -17,6 +17,8 @@ class ElasticApmEnginePass implements CompilerPassInterface
     {
         $elasticApmEnabled = $container->resolveEnvPlaceholders($container->getParameter('elastic_apm.enabled'), true);
 
+        // Agent parameter is set to null to prevent Philkra/Agent from communicating
+        // with Elastic APM if the feature flag is set to false
         if (false === $elasticApmEnabled) {
             $container
                 ->getDefinition(AgentService::class)
