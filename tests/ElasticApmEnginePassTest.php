@@ -8,13 +8,11 @@ declare(strict_types=1);
 
 namespace Wizacha\ElasticApmBundle\Tests;
 
-use PhilKra\Agent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Wizacha\ElasticApm\Service\AgentService;
 use Wizacha\ElasticApmBundle\DependencyInjection\Compiler\ElasticApmEnginePass;
 
 class ElasticApmEnginePassTest extends TestCase
@@ -50,8 +48,9 @@ class ElasticApmEnginePassTest extends TestCase
         $this->setParameter('elastic_apm.enabled', true);
         $this->container->compile();
 
-        static::assertSame(Agent::class, $this->container->getDefinition(Agent::class)->getClass());
-        static::assertArrayHasKey(Agent::class, $this->container->getDefinitions());
+        static::assertContains('Wizacha\ElasticApm\Service\AgentService', $this->container->getServiceIds());
+        static::assertContains('Wizacha\ElasticApmBundle\ElasticApmSubscriber', $this->container->getServiceIds());
+        static::assertContains('PhilKra\Agent', $this->container->getServiceIds());
     }
 
     public function testDisabledConfiguration(): void
@@ -59,7 +58,9 @@ class ElasticApmEnginePassTest extends TestCase
         $this->setParameter('elastic_apm.enabled', false);
         $this->container->compile();
 
-        static::assertNull($this->container->get(AgentService::class)->getAgent());
+        static::assertNotContains('Wizacha\ElasticApm\Service\AgentService', $this->container->getServiceIds());
+        static::assertNotContains('Wizacha\ElasticApmBundle\ElasticApmSubscriber', $this->container->getServiceIds());
+        static::assertNotContains('PhilKra\Agent', $this->container->getServiceIds());
     }
 
     /**
