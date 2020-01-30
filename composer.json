@@ -26,13 +26,14 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Wizacha\\ElasticApmBundle\\Tests\\": "/Tests/"
+      "Wizacha\\ElasticApmBundle\\Tests\\": "tests/"
     }
   },
   "require": {
     "philkra/elastic-apm-php-agent": "dev-master",
-    "wizaplace/elastic-apm-wrapper": "^0.2.2",
-    "symfony/symfony": ">=3.0 <4.3"
+    "symfony/dependency-injection": "~3.0",
+    "symfony/symfony": ">=3.0 <4.3",
+    "wizaplace/elastic-apm-wrapper": "^0.3.0"
   },
   "repositories": [
     {

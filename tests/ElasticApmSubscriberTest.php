@@ -6,7 +6,7 @@
  */
 declare(strict_types=1);
 
-namespace Wizacha\ElasticApmBundle\tests;
+namespace Wizacha\ElasticApmBundle\Tests;
 
 use PHPUnit\Framework\TestCase;
 use PhilKra\Events\Transaction;
@@ -38,7 +38,6 @@ class ElasticApmSubscriberTest extends TestCase
         $this->kernel = $this->getMockBuilder(KernelInterface::class)
             ->getMock();
     }
-
 
     public function testEventSubscription(): void
     {

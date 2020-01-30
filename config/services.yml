@@ -10,17 +10,17 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
-    bind:
-      $apmEnabled: '%elastic_apm.enabled%'
-      $agent: '@PhilKra\Agent'
-      $agentService: '@Wizacha\ElasticApm\Service\AgentService'
 
   Wizacha\ElasticApmBundle\ElasticApmSubscriber:
     class: Wizacha\ElasticApmBundle\ElasticApmSubscriber
     tags:
       - { name: kernel.event_subscriber }
+
   Wizacha\ElasticApm\Service\AgentService:
-    class: Wizacha\ElasticApm\Service\AgentService
+    autowire: true
+    arguments:
+      - '%elastic_apm.enabled%'
+      - '@PhilKra\Agent'
 
   PhilKra\Agent:
     class: PhilKra\Agent

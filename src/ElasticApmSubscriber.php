@@ -31,10 +31,6 @@ class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
      */
     public function onKernelRequest(GetResponseEvent $kernelEvent)
     {
-        if ($this->isDisabled()) {
-            return $this;
-        }
-
         if (true === $kernelEvent->isMasterRequest() && null === $this->transaction) {
             $this->transaction = $this->agentService
                 ->startTransaction(
@@ -51,10 +47,6 @@ class ElasticApmSubscriber extends ElasticApmAbstractSubscriber
 
     public function onKernelException(GetResponseForExceptionEvent $kernelEvent)
     {
-        if ($this->isDisabled()) {
-            return $this;
-        }
-
         $this->agentService->error($kernelEvent->getException());
     }
 }
