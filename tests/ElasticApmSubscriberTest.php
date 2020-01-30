@@ -39,7 +39,6 @@ class ElasticApmSubscriberTest extends TestCase
             ->getMock();
     }
 
-
     public function testEventSubscription(): void
     {
         static::assertArrayHasKey(KernelEvents::REQUEST, ElasticApmSubscriber::getSubscribedEvents());
