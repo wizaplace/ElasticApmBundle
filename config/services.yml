@@ -1,11 +1,3 @@
-parameters:
-  philkra.app_name: '%env(PHILKRA_APP_NAME)%'
-  philkra.app_version: '%env(PHILKRA_APP_VERSION)%'
-  philkra.environment: '%env(PHILKRA_ENVIRONMENT)%'
-  philkra.server_url: '%env(PHILKRA_SERVER_URL)%'
-  philkra.secret_token: '%env(PHILKRA_SECRET_TOKEN)%'
-  elastic_apm.enabled: '%env(ELASTIC_APM_ENABLED)%'
-
 services:
   _defaults:
     autowire: true
@@ -18,9 +10,6 @@ services:
 
   Wizacha\ElasticApm\Service\AgentService:
     autowire: true
-    arguments:
-      - '%elastic_apm.enabled%'
-      - '@PhilKra\Agent'
 
   PhilKra\Agent:
     class: PhilKra\Agent
