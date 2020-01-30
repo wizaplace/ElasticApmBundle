@@ -37,19 +37,10 @@ abstract class ElasticApmAbstractSubscriber implements EventSubscriberInterface
 
     public function onKernelTerminate()
     {
-        if ($this->isDisabled()) {
-            return $this;
-        }
-
         if ($this->transaction instanceof Transaction) {
             $this->agentService->stopTransaction();
             $this->transaction = null;
         }
-    }
-
-    public function isDisabled(): bool
-    {
-        return false === $this->agentService->getApmEnabled();
     }
 
     abstract public static function getSubscribedEvents();
