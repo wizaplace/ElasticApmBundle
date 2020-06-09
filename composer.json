@@ -33,17 +33,21 @@
     "philkra/elastic-apm-php-agent": "dev-master",
     "symfony/dependency-injection": "~3.0",
     "symfony/symfony": ">=3.0 <4.3",
-    "wizaplace/elastic-apm-wrapper": "^0.3.0"
+    "wizaplace/elastic-apm-wrapper": "^0.4.0"
   },
   "repositories": [
     {
       "type": "git",
-      "url": "git@github.com:wizaplace/elastic-apm-wrapper.git"
+      "url": "https://github.com/wizaplace/elastic-apm-wrapper.git"
     }
   ],
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.16",
-    "phpstan/phpstan": "^0.12.5",
+    "infection/infection": "^0.15.3",
+    "phpstan/extension-installer": "^1.0",
+    "phpstan/phpstan": "^0.12.27",
+    "phpstan/phpstan-deprecation-rules": "^0.12.4",
+    "phpstan/phpstan-strict-rules": "^0.12.2",
     "phpunit/phpunit": "^8.5",
     "squizlabs/php_codesniffer": "^3.5"
   }

@@ -8,15 +8,15 @@ declare(strict_types=1);
 
 namespace Wizacha\ElasticApmBundle\Tests;
 
-use PHPUnit\Framework\TestCase;
 use PhilKra\Events\Transaction;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Event\PostResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\KernelInterface;
-use Symfony\Component\HttpKernel\Event\PostResponseEvent;
-use Symfony\Component\HttpFoundation\Response;
 use Wizacha\ElasticApm\Service\AgentService;
 use Wizacha\ElasticApmBundle\ElasticApmSubscriber;
 
@@ -25,7 +25,7 @@ class ElasticApmSubscriberTest extends TestCase
     /** @var AgentService */
     private $agentService;
 
-    /** @var KernelInterface  */
+    /** @var KernelInterface */
     private $kernel;
 
     public function setUp(): void
