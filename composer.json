@@ -33,7 +33,7 @@
     "philkra/elastic-apm-php-agent": "dev-master",
     "symfony/dependency-injection": "~3.0",
     "symfony/symfony": ">=3.0 <4.3",
-    "wizaplace/elastic-apm-wrapper": "^0.3.0"
+    "wizaplace/elastic-apm-wrapper": "^0.4.0"
   },
   "repositories": [
     {
