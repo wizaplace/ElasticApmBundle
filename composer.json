@@ -6,7 +6,7 @@
     "Elastic APM"
   ],
   "homepage": "https://github.com/wizaplace/elastic-apm-symfony",
-  "license": "proprietary",
+  "license": "MIT",
   "authors": [
     {
       "name": "Wizacha DevTeam",
@@ -30,17 +30,10 @@
     }
   },
   "require": {
-    "philkra/elastic-apm-php-agent": "dev-master",
     "symfony/dependency-injection": "~3.0",
     "symfony/symfony": ">=3.0 <4.3",
-    "wizaplace/elastic-apm-wrapper": "^0.4.0"
+    "wizaplace/elastic-apm-wrapper": "^0.4.2"
   },
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/wizaplace/elastic-apm-wrapper.git"
-    }
-  ],
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.16",
     "infection/infection": "^0.15.3",

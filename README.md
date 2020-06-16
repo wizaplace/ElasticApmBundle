@@ -15,7 +15,7 @@ Uses [wizaplace/wizaplace/elastic-apm-wrapper](https://github.com/wizaplace/elas
             "url": "https://github.com/wizaplace/elastic-apm-wrapper"
         }
         
-2)    Add the requirements in your _require_ section of the _composer.json_ file:
-`        "philkra/elastic-apm-php-agent": "dev-master"`
+2)   Require the bundle _composer require wizaplace/elastic-apm-symfony_
 
-3)   Require the bundle _composer require wizaplace/elastic-apm-symfony_
+## License
+This library is licensed under the [MIT license](http://opensource.org/licenses/MIT).
