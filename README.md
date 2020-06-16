@@ -1,21 +1,18 @@
 # Elastic APM Symfony Bundle
-Uses [wizaplace/wizaplace/elastic-apm-wrapper](https://github.com/wizaplace/elastic-apm-wrapper).
+Uses the [wizaplace/wizaplace/elastic-apm-wrapper](https://github.com/wizaplace/elastic-apm-wrapper).
 
+[![License](https://poser.pugx.org/wizaplace/ElasticApmBundle/license)](https://packagist.org/packages/wizaplace/ElasticApmBundle)
+[![CircleCI](https://circleci.com/gh/wizaplace/ElasticApmBundle/tree/master.svg?style=svg)](https://circleci.com/gh/wizaplace/ElasticApmBundle/tree/master)
+[![Version](https://img.shields.io/github/v/release/wizaplace/ElasticApmBundle)](https://circleci.com/gh/wizaplace/ElasticApmBundle/tree/master)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/wizaplace/ElasticApmBundle/graphs/commit-activity)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://GitHub.com/wizaplace/ElasticApmBundle)
 
 ## Installation
 
-1) Add the repositories to your _composer.json_ file: 
+Install the bundle via composer:
 
-        {
-            "type": "git",
-            "url": "https://github.com/wizaplace/elastic-apm-symfony"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/wizaplace/elastic-apm-wrapper"
-        }
+        composer require wizaplace/elastic-apm-symfony
         
-2)    Add the requirements in your _require_ section of the _composer.json_ file:
-`        "philkra/elastic-apm-php-agent": "dev-master"`
 
-3)   Require the bundle _composer require wizaplace/elastic-apm-symfony_
+## License
+This library is licensed under the [MIT license](http://opensource.org/licenses/MIT).
