@@ -1,7 +1,7 @@
 # Elastic APM Symfony Bundle
-Uses the [wizaplace/wizaplace/elastic-apm-wrapper](https://github.com/wizaplace/elastic-apm-wrapper).
+Uses the [wizaplace/elastic-apm-wrapper](https://github.com/wizaplace/elastic-apm-wrapper).
 
-[![License](https://poser.pugx.org/wizaplace/ElasticApmBundle/license)](https://packagist.org/packages/wizaplace/ElasticApmBundle)
+[![License](https://poser.pugx.org/wizaplace/elastic-apm-symfony/license)](https://packagist.org/packages/wizaplace/elastic-apm-symfony)
 [![CircleCI](https://circleci.com/gh/wizaplace/ElasticApmBundle/tree/master.svg?style=svg)](https://circleci.com/gh/wizaplace/ElasticApmBundle/tree/master)
 [![Version](https://img.shields.io/github/v/release/wizaplace/ElasticApmBundle)](https://circleci.com/gh/wizaplace/ElasticApmBundle/tree/master)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/wizaplace/ElasticApmBundle/graphs/commit-activity)
