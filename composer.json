@@ -30,7 +30,9 @@
     }
   },
   "require": {
-    "symfony/symfony": ">=4.4",
+    "symfony/config": ">=4.4",
+    "symfony/dependency-injection": ">=4.4",
+    "symfony/http-kernel": ">=4.4",
     "wizaplace/elastic-apm-wrapper": "^0.4.2"
   },
   "require-dev": {
