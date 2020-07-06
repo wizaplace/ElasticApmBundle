@@ -12,9 +12,9 @@ use PhilKra\Events\Transaction;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\HttpKernel\Event\PostResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
+use Symfony\Component\HttpKernel\Event\TerminateEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Wizacha\ElasticApm\Service\AgentService;
@@ -49,7 +49,7 @@ class ElasticApmSubscriberTest extends TestCase
     public function testOnExceptionNewError(): void
     {
         $elasticApmSubscriber = new ElasticApmSubscriber($this->agentService);
-        $exception = new GetResponseForExceptionEvent($this->kernel, new Request(), 1, new \Exception('Ceci est une exception'));
+        $exception = new ExceptionEvent($this->kernel, new Request(), 1, new \Exception('Ceci est une exception'));
 
         $this->agentService
             ->expects($this->once())
@@ -61,7 +61,7 @@ class ElasticApmSubscriberTest extends TestCase
     public function testOnRequestNewTransaction(): void
     {
         $elasticApmSubscriber = new ElasticApmSubscriber($this->agentService);
-        $event = new GetResponseEvent($this->kernel, new Request(), 1);
+        $event = new RequestEvent($this->kernel, new Request(), 1);
 
         $this->agentService
             ->expects($this->once())
@@ -80,11 +80,11 @@ class ElasticApmSubscriberTest extends TestCase
             ->will($this->returnValue(new Transaction('New transaction', [])));
 
         $elasticApmSubscriber = new ElasticApmSubscriber($this->agentService);
-        $event = new GetResponseEvent($this->kernel, new Request(), 1);
+        $event = new RequestEvent($this->kernel, new Request(), 1);
 
         $elasticApmSubscriber->onKernelRequest($event);
 
-        new PostResponseEvent($this->kernel, new Request(), new Response());
+        new TerminateEvent($this->kernel, new Request(), new Response());
 
         $this->agentService
             ->expects($this->once())
