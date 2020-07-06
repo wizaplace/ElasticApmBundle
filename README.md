@@ -9,10 +9,15 @@ Uses the [wizaplace/elastic-apm-wrapper](https://github.com/wizaplace/elastic-ap
 
 ## Installation
 
-Install the bundle via composer:
+Install the bundle via composer.
+
+* For Symfony >=4.4:
 
         composer require wizaplace/elastic-apm-symfony
         
+* For Symfony <=4.3:
+
+        composer require wizaplace/elastic-apm-symfony:^1
 
 ## License
 This library is licensed under the [MIT license](http://opensource.org/licenses/MIT).
