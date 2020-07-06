@@ -30,8 +30,8 @@
     }
   },
   "require": {
-    "symfony/dependency-injection": "~3.0",
-    "symfony/symfony": ">=3.0 <4.3",
+    "symfony/dependency-injection": ">=3.0",
+    "symfony/symfony": ">=3.0",
     "wizaplace/elastic-apm-wrapper": "^0.4.2"
   },
   "require-dev": {
