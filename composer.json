@@ -31,6 +31,7 @@
   },
   "require": {
     "symfony/dependency-injection": ">=3.0",
+    "symfony/http-kernel": "^3.0",
     "symfony/symfony": ">=3.0",
     "wizaplace/elastic-apm-wrapper": "^0.4.2"
   },
